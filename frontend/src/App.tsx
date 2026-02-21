@@ -11,6 +11,7 @@ import MyBookingsPage from './pages/MyBookingsPage';
 
 // Admin pages
 import AdminLoginPage from './pages/admin/AdminLoginPage';
+import ChangePasswordPage from './pages/admin/ChangePasswordPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminCourse from './pages/admin/AdminCourse';
 import AdminTeeTimes from './pages/admin/AdminTeeTimes';
@@ -27,10 +28,12 @@ const RequireAuth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 // Guard component — redirects non-admin users to home
+// Also redirects admins who still need to change their password
 const RequireAdmin: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, isAdmin, loading } = useAuth();
   if (loading) return <div className="spinner" />;
   if (!user) return <Navigate to="/admin/login" replace />;
+  if (user.must_change_password) return <Navigate to="/admin/change-password" replace />;
   return isAdmin ? <>{children}</> : <Navigate to="/" replace />;
 };
 
@@ -48,6 +51,9 @@ const AppRoutes: React.FC = () => (
 
     {/* Admin login — standalone page, not linked from the public site */}
     <Route path="/admin/login" element={<AdminLoginPage />} />
+
+    {/* Force password change — shown on first login */}
+    <Route path="/admin/change-password" element={<ChangePasswordPage />} />
 
     {/* Admin routes */}
     <Route path="/admin" element={<RequireAdmin><AdminDashboard /></RequireAdmin>} />

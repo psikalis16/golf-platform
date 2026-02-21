@@ -18,8 +18,8 @@ const AdminLoginPage: React.FC = () => {
     setError(null);
     try {
       await login(email, password);
-      // isAdmin is derived from the newly set user — read fresh from context after login
-      // We navigate and let RequireAdmin handle access control
+      // Login updates AuthContext; navigate and let RequireAdmin handle access control.
+      // If must_change_password is set, RequireAdmin will redirect to /admin/change-password.
       navigate('/admin');
     } catch {
       setError('Invalid email or password.');

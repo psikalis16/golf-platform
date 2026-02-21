@@ -31,6 +31,8 @@ Route::middleware('resolve.tenant')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/auth/logout', [AuthController::class, 'logout']);
         Route::get('/auth/me', [AuthController::class, 'me']);
+        // Change password and clear the must_change_password flag
+        Route::post('/auth/change-password', [AuthController::class, 'changePassword']);
 
         // Booking — open to any authenticated user (golfer or admin)
         Route::post('/bookings', [BookingController::class, 'store']);

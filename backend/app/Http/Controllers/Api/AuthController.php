@@ -83,4 +83,24 @@ class AuthController extends Controller
     {
         return response()->json($request->user());
     }
+
+    /**
+     * Allow an authenticated user to change their password.
+     * Clears the must_change_password flag on success.
+     */
+    public function changePassword(Request $request): JsonResponse
+    {
+        $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = $request->user();
+
+        $user->update([
+            'password'             => $request->password,
+            'must_change_password' => false,
+        ]);
+
+        return response()->json(['message' => 'Password updated successfully.']);
+    }
 }

@@ -7,6 +7,8 @@ interface AuthContextValue {
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  // Re-fetches the user from the API (e.g. after a password change)
+  refreshUser: () => Promise<void>;
   isAdmin: boolean;
 }
 
@@ -15,6 +17,7 @@ const AuthContext = createContext<AuthContextValue>({
   loading: true,
   login: async () => {},
   logout: async () => {},
+  refreshUser: async () => {},
   isAdmin: false,
 });
 
@@ -47,9 +50,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(null);
   }, []);
 
+  // Re-fetches the current user — call this after updating profile data
+  const refreshUser = useCallback(async () => {
+    const res = await fetchMe();
+    setUser(res.data);
+  }, []);
+
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, logout, isAdmin: user?.role === 'admin' }}
+      value={{ user, loading, login, logout, refreshUser, isAdmin: user?.role === 'admin' }}
     >
       {children}
     </AuthContext.Provider>

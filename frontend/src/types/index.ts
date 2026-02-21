@@ -75,6 +75,8 @@ export interface User {
   email: string;
   role: 'admin' | 'golfer';
   tenant_id: number;
+  // When true the user must set a new password before accessing the app
+  must_change_password: boolean;
 }
 
 export interface CourseClosure {

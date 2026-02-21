@@ -44,6 +44,12 @@ export const logout = () => api.post('/auth/logout');
 
 export const fetchMe = () => api.get('/auth/me');
 
+export const changePassword = (data: {
+  password: string;
+  password_confirmation: string;
+}) => api.post('/auth/change-password', data);
+
+
 // ─── Golfer booking endpoints ─────────────────────────────────────────────────
 
 export const createBooking = (data: {
