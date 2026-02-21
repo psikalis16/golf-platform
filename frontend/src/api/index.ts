@@ -1,8 +1,16 @@
 import axios from 'axios';
 
+const getBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.includes('localhost')) {
+    return envUrl.replace('localhost', window.location.hostname);
+  }
+  return envUrl ?? `http://${window.location.hostname}:8000/api`;
+};
+
 // Base API client — reads backend URL from Vite env
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api',
+  baseURL: getBaseUrl(),
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
