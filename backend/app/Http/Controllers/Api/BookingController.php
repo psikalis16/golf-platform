@@ -8,6 +8,7 @@ use App\Models\TeeTimeSlot;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class BookingController extends Controller
 {
@@ -23,8 +24,8 @@ class BookingController extends Controller
             'cart_requested'   => 'boolean',
             'notes'            => 'nullable|string|max:500',
             // Guest fields — required only if not logged in
-            'guest_name'       => 'required_without:user|string|max:100',
-            'guest_email'      => 'required_without:user|email|max:150',
+            'guest_name'       => [Rule::requiredIf(fn() => !$request->user()), 'nullable', 'string', 'max:100'],
+            'guest_email'      => [Rule::requiredIf(fn() => !$request->user()), 'nullable', 'email', 'max:150'],
             'guest_phone'      => 'nullable|string|max:20',
         ]);
 
