@@ -1,0 +1,83 @@
+/* Shared admin page styles */
+
+.admin-page h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.admin-subtitle {
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+}
+
+/* ── Dashboard cards ─────────────────────────────────────────── */
+.dash-cards { margin-bottom: 3rem; }
+
+.dash-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.dash-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--color-primary);
+}
+
+.dash-icon { font-size: 1.75rem; margin-bottom: 0.25rem; }
+
+.dash-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dash-card p { font-size: 0.85rem; color: var(--color-text-muted); margin: 0; }
+
+/* ── Sections ────────────────────────────────────────────────── */
+.dash-section { margin-bottom: 2.5rem; }
+.dash-section h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+/* ── Closures list ───────────────────────────────────────────── */
+.closures-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.closure-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.closure-date { font-weight: 600; }
+.closure-reason { font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* ── Admin form section ──────────────────────────────────────── */
+.admin-form-section {
+  max-width: 640px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.success-msg {
+  color: #4eda7e;
+  font-size: 0.875rem;
+  background: rgba(26, 122, 60, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+}

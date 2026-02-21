@@ -1,0 +1,170 @@
+/* HomePage — hero section and course info styles */
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      160deg,
+      rgba(15, 26, 19, 0.85) 0%,
+      rgba(15, 26, 19, 0.6) 60%,
+      rgba(26, 122, 60, 0.3) 100%
+    ),
+    url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(26, 122, 60, 0.15), transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  max-width: 640px;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(232, 245, 234, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Quick stats below CTA */
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: rgba(232, 245, 234, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Section ─────────────────────────────────────────────────── */
+.section {
+  padding: 4rem 0;
+}
+
+/* ── Info rows ───────────────────────────────────────────────── */
+.info-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  align-items: flex-start;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  min-width: 80px;
+  padding-top: 0.1rem;
+}
+
+.info-value { font-size: 0.95rem; }
+.info-link { color: var(--color-primary); }
+.info-link:hover { text-decoration: underline; }
+
+/* ── Amenities ───────────────────────────────────────────────── */
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.amenity-item {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Hours ───────────────────────────────────────────────────── */
+.hours-card { margin-top: 1.5rem; }
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.hours-day { font-weight: 600; }
+.hours-time { color: var(--color-text-muted); }
+
+/* ── CTA banner ──────────────────────────────────────────────── */
+.cta-banner {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--color-surface), var(--color-surface-2));
+}
+
+.cta-banner h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+.cta-banner p  { color: var(--color-text-muted); margin-bottom: 1.5rem; }

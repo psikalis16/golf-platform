@@ -1,0 +1,94 @@
+/* BookingAuthGate — shown on the booking page when user is not authenticated */
+
+.auth-gate {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Header prompt */
+.auth-gate-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-gate-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.auth-gate-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.auth-gate-sub {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Tab switcher */
+.auth-gate-tabs {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.auth-gate-tab {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.auth-gate-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Form */
+.auth-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.auth-gate-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* Switch link at bottom of form */
+.auth-gate-switch {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+/* Inline text button used to flip tabs */
+.auth-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: inherit;
+}
+
+.auth-link-btn:hover {
+  text-decoration: underline;
+}
