@@ -21,7 +21,7 @@ class AdminBookingController extends Controller
 
         // Filter by date if provided
         if ($request->has('date')) {
-            $query->whereHas('teeTimeSlot', fn ($q) => $q->where('date', $request->date));
+            $query->whereHas('teeTimeSlot', fn ($q) => $q->whereDate('date', $request->date));
         }
 
         // Filter by status if provided

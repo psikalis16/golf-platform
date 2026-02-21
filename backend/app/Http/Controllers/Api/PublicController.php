@@ -35,7 +35,7 @@ class PublicController extends Controller
 
         // Check if the course is closed on this date
         $isClosed = CourseClosure::where('tenant_id', $tenant->id)
-            ->where('date', $date)
+            ->whereDate('date', $date)
             ->exists();
 
         if ($isClosed) {
@@ -44,7 +44,7 @@ class PublicController extends Controller
 
         // Return available slots for this date with remaining spots appended
         $slots = TeeTimeSlot::where('tenant_id', $tenant->id)
-            ->where('date', $date)
+            ->whereDate('date', $date)
             ->where('is_available', true)
             ->whereRaw('booked_players < max_players')
             ->orderBy('start_time')

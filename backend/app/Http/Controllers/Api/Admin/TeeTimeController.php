@@ -22,7 +22,10 @@ class TeeTimeController extends Controller
         $tenant = app('tenant');
 
         $slots = TeeTimeSlot::where('tenant_id', $tenant->id)
-            ->whereBetween('date', [$request->start_date, $request->end_date])
+            ->whereBetween('date', [
+                $request->start_date . ' 00:00:00',
+                $request->end_date . ' 23:59:59'
+            ])
             ->orderBy('date')
             ->orderBy('start_time')
             ->get();
