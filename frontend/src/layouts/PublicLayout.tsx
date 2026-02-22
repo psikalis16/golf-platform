@@ -23,7 +23,7 @@ const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => 
             {tenant?.logo_url && (
               <img src={tenant.logo_url} alt={tenant.name} className="logo-img" />
             )}
-            <span className="logo-name">{tenant?.name ?? 'Golf Course'}</span>
+            <span className="logo-name">{tenant?.course?.name ?? 'Golf Course'}</span>
           </Link>
 
           <nav className="site-nav">
